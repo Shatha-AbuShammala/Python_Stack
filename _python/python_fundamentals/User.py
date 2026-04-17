@@ -4,11 +4,14 @@ class User:
         self.balance = balance
     def make_withdrawal(self, amount):
         self.balance -=amount
+        return self
     def display_user_balance(self):    
         print(f"{self.name }: {self.balance}")
+        return self
     def transfer_money(self, other_user , amount):
         self.balance -=amount
         other_user.balance +=amount
+        return self
 
             
 
@@ -19,3 +22,6 @@ User1.display_user_balance()
 User2=User("shatha", 30)
 User1.transfer_money(User2 ,10)
 User2.display_user_balance()
+
+#chaining method
+User1.make_withdrawal(10).display_user_balance()

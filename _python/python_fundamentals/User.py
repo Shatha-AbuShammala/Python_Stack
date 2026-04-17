@@ -16,10 +16,6 @@ User1= User("Ahmed" , 100)
 User1.make_withdrawal(10)
 User1.display_user_balance()
 
-User2=User("shatha", 20)
+User2=User("shatha", 30)
 User1.transfer_money(User2 ,10)
 User2.display_user_balance()
-
-
-    
-

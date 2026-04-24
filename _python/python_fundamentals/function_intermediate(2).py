@@ -15,9 +15,9 @@ z = [ {'x': 10, 'y': 20} ]
 # Update Values
 x[1][0] = 15
 students[0]['last_name'] = 'Bryant'
+print(sports_directory['soccer'][1])
 sports_directory['soccer'][0] = 'Andres'
 z[0]['y'] = 30
-
 print("x =", x)
 print("students =", students)
 print("sports_directory =", sports_directory)

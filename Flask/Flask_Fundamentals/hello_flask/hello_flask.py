@@ -12,10 +12,16 @@ def Champion():
 @app.route('/say/<name>')
 def say(name):
     return name
-
-@app.route('/repeat/<times>/<word>')
+#Ninja Bounce
+@app.route('/repeat/<int:times>/<word>')
 def repeat(times,word):
-    return (word +" ")*int(times)
+    return (word +" ")*(times)
+
+#SENSI bouns
+@app.errorhandler(404)  
+def page_not_found(error):
+    return "Sorry! No response. Try again."
+
 
 if __name__ == "__main__":
     app.run(debug=True)

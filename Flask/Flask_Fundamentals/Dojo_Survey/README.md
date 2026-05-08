@@ -19,4 +19,4 @@ Dojo_Survey/
 ├── server.py
 └── templates/
       ├── index.html
-      └── resul
+      └── result.html

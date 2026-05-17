@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Great Number Game</h1>
+    <p>I'm thinking of a number between 1 and 100</p>
+
+    {% if result %}
+        <h2>{{ result }}</h2>
+        {% if result == "Correct!" %}
+            <a href="/play_again">Play again!</a>
+        {% endif %}
+    {% endif %}
+
+    {% if result != "Correct!" %}
+    <form action="/guess" method="POST">
+        <input type="number" name="guess">
+        <button>Submit</button>
+    </form>
+    {% endif %}
+
+</body>
+</html>

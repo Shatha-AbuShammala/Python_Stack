@@ -1,0 +1,45 @@
+#Create 3 Dojos
+d1 = Dojo.objects.create(name="Dojo1", city="Nablus", state="NA")
+d2 = Dojo.objects.create(name="Dojo2", city="Ramallah", state="RA")
+d3 = Dojo.objects.create(name="Dojo3", city="Hebron", state="HE")
+
+
+#Delete 3 Dojos
+Dojo.objects.all().delete()
+
+
+#Create 3 Dojos again
+d1 = Dojo.objects.create(name="Dojo1", city="Nablus", state="NA")
+d2 = Dojo.objects.create(name="Dojo2", city="Ramallah", state="RA")
+d3 = Dojo.objects.create(name="Dojo3", city="Hebron", state="HE")
+
+
+#Create 3 Ninjas for first Dojo
+Ninja.objects.create(first_name="Ali", last_name="Ahmad", dojo=d1)
+Ninja.objects.create(first_name="Sara", last_name="Khaled", dojo=d1)
+Ninja.objects.create(first_name="Omar", last_name="Hassan", dojo=d1)
+
+
+#Create 3 Ninjas for second Dojo
+Ninja.objects.create(first_name="Lina", last_name="Yousef", dojo=d2)
+Ninja.objects.create(first_name="Noor", last_name="Saleh", dojo=d2)
+Ninja.objects.create(first_name="Tamer", last_name="Ali", dojo=d2)
+
+
+#Create 3 Ninjas for third Dojo
+Ninja.objects.create(first_name="Mona", last_name="Ibrahim", dojo=d3)
+Ninja.objects.create(first_name="Hani", last_name="Zaid", dojo=d3)
+Ninja.objects.create(first_name="Reem", last_name="Omar", dojo=d3)
+
+
+#Retrieve all ninjas from first dojo
+d1.ninja_set.all()
+
+
+#Retrieve all ninjas from last dojo
+d3.ninja_set.all()
+
+
+#Retrieve last ninja's dojo
+n = Ninja.objects.last()
+n.dojo

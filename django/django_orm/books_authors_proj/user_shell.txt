@@ -1,0 +1,58 @@
+# import models
+from books_authors_app.models import Book, Author
+
+# create books
+book1 = Book.objects.create(title="C Sharp", desc="Programming language")
+book2 = Book.objects.create(title="Java", desc="Programming language")
+book3 = Book.objects.create(title="Python", desc="Programming language")
+book4 = Book.objects.create(title="PHP", desc="Programming language")
+book5 = Book.objects.create(title="Ruby", desc="Programming language")
+
+# create authors
+author1 = Author.objects.create(first_name="Jane", last_name="Austen")
+author2 = Author.objects.create(first_name="Emily", last_name="Dickinson")
+author3 = Author.objects.create(first_name="Fyodor", last_name="Dostoevsky")
+author4 = Author.objects.create(first_name="William", last_name="Shakespeare")
+author5 = Author.objects.create(first_name="Lao", last_name="Tzu")
+
+# update book name
+book1.title = "C#"
+book1.save()
+
+# update 4th author name
+author4.first_name = "Bill"
+author4.save()
+
+# assign authors to books
+book1.authors.add(author1)
+book2.authors.add(author1)
+
+book1.authors.add(author2)
+book2.authors.add(author2)
+book3.authors.add(author2)
+
+book1.authors.add(author3)
+book2.authors.add(author3)
+book3.authors.add(author3)
+book4.authors.add(author3)
+
+book1.authors.add(author4)
+book2.authors.add(author4)
+book3.authors.add(author4)
+book4.authors.add(author4)
+book5.authors.add(author4)
+
+# get authors of 3rd book
+book3.authors.all()
+
+# remove first author from 3rd book
+book3.authors.remove(author1)
+
+# add 5th author to 2nd book
+book2.authors.add(author5)
+
+# get books of 3rd author
+author3.books.all()
+
+# get authors of 5th book
+book5.authors.all()

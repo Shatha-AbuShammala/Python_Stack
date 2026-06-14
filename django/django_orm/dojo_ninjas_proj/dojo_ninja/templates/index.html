@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo & Ninga</title>
+</head>
+<body>
+    <h2>Add Dojo</h2>
+    <form action="/create_dojo" method="POST">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" name="name">
+
+        <label>City</label>
+        <input type="text" name="city">
+
+        <label>State</label>
+        <input type="text" name="state">
+        <button type="submit">Add</button>
+
+    </form>
+<h2>Add Ninga</h2>
+    <form action="/create_ninga" method="POST">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input type="text" name="first_name">
+
+        <label>Last Name</label>
+        <input type="text" name="last_name">
+
+        <label>Dojo</label>
+        <select name="dojo_id">
+            {% for dojo in dojos %}
+            <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+
+        {% endfor %}
+        </select>
+        <button type="submit">Add</button>
+    </form>
+    <h2>All the Dojos</h2>
+
+{% for dojo in dojos %}
+<div>
+    <ul>
+        {% for ninja in dojo.ninja_set.all %}
+        <li>{{ ninja.first_name }} {{ ninja.last_name }} {{ dojo.name }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
